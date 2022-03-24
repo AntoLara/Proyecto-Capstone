@@ -1,0 +1,837 @@
+[
+    {
+        "id": "a4e65cfcd4071311",
+        "type": "tab",
+        "label": "Flow 6",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "da1d01d088049d19",
+        "type": "ui_numeric",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "label": "Meta de Piezas a Troquelar:",
+        "tooltip": "",
+        "group": "d5acbd2ecec9b290",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "9",
+        "step": 1,
+        "x": 540,
+        "y": 1100,
+        "wires": [
+            [
+                "8d9450245657242c"
+            ]
+        ]
+    },
+    {
+        "id": "42f473f107b0e2b4",
+        "type": "ui_text",
+        "z": "a4e65cfcd4071311",
+        "group": "a0327760eeb10456",
+        "order": 3,
+        "width": "13",
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 510,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9639b81db69a9fee",
+        "type": "inject",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Troqueladora de Piezas Mécanicas",
+        "payloadType": "str",
+        "x": 350,
+        "y": 40,
+        "wires": [
+            [
+                "42f473f107b0e2b4"
+            ]
+        ]
+    },
+    {
+        "id": "c2698a90f57820dc",
+        "type": "ui_text",
+        "z": "a4e65cfcd4071311",
+        "group": "6afa56d9068581a8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Estado:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1220,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3db97d1675be3955",
+        "type": "ui_text",
+        "z": "a4e65cfcd4071311",
+        "group": "6afa56d9068581a8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Piezas troqueladas:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1210,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "16d4257ae84422c4",
+        "type": "ui_button",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "group": "83f8c53ea21b1238",
+        "order": 3,
+        "width": "13",
+        "height": "1",
+        "passthru": false,
+        "label": "Reset",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 900,
+        "wires": [
+            [
+                "159c7344c7425a74"
+            ]
+        ]
+    },
+    {
+        "id": "38cf0ecbf0de20dd",
+        "type": "ui_numeric",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "label": "Modelo a elaborar:",
+        "tooltip": "",
+        "group": "d5acbd2ecec9b290",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "3",
+        "step": 1,
+        "x": 550,
+        "y": 1000,
+        "wires": [
+            [
+                "2a912baaf1f29712"
+            ]
+        ]
+    },
+    {
+        "id": "8d9450245657242c",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "global.set (\"piezasxproducir\",msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1080,
+        "wires": [
+            [
+                "91109bc4e7760385"
+            ]
+        ]
+    },
+    {
+        "id": "0054176e10fd827b",
+        "type": "debug",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "2a912baaf1f29712",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "global.set (\"numciclo\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1000,
+        "wires": [
+            [
+                "0054176e10fd827b"
+            ]
+        ]
+    },
+    {
+        "id": "91109bc4e7760385",
+        "type": "debug",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "6c7e8665e40982a7",
+        "type": "ui_button",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "group": "83f8c53ea21b1238",
+        "order": 2,
+        "width": "13",
+        "height": "1",
+        "passthru": false,
+        "label": "Iniciar",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 70,
+        "y": 460,
+        "wires": [
+            [
+                "fea15303708fac24"
+            ]
+        ]
+    },
+    {
+        "id": "af3e88de126e198d",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload = global.get (\"piezasHechas\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 700,
+        "wires": [
+            [
+                "2ff9355f48d2b361"
+            ]
+        ]
+    },
+    {
+        "id": "c5f48994318d1fc9",
+        "type": "debug",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "bd746106e73481a3",
+        "type": "mqtt out",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "topic": "codigoIoT/py/DataIni",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "edd3004a.11da88",
+        "x": 1160,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "4b50ed5ee88d98a9",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload=\"000\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 900,
+        "wires": [
+            [
+                "bd746106e73481a3"
+            ]
+        ]
+    },
+    {
+        "id": "cccfdf0ec51e8cff",
+        "type": "ui_text",
+        "z": "a4e65cfcd4071311",
+        "group": "6afa56d9068581a8",
+        "order": 3,
+        "width": "13",
+        "height": "1",
+        "name": "",
+        "label": "Modelo Elaborado:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1210,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "39c5d09004e1c64e",
+        "type": "split",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "splt": "1",
+        "spltType": "len",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "c2d5f6bd0d6b4da1"
+            ]
+        ]
+    },
+    {
+        "id": "e387f3870b375c7a",
+        "type": "debug",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c2d5f6bd0d6b4da1",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "if (msg.parts.index==0){\n    global.set (\"estado\",msg.payload);\n}\nif (msg.parts.index==1){\n    global.set (\"modelodepieza\",msg.payload);\n}\nif (msg.parts.index==2){\n    global.set (\"piezasHechas\",msg.payload);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 300,
+        "wires": [
+            [
+                "e387f3870b375c7a",
+                "3de0d8844f51f49d",
+                "d4f86ec4a11cc991",
+                "571f51fd171aa811"
+            ]
+        ]
+    },
+    {
+        "id": "3de0d8844f51f49d",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "var estado1 = global.get (\"estado\");\nif (estado1==\"1\"){\n    msg.payload=\"Troqueladora Encendida\";\n}\nif (estado1==\"0\"){\n    msg.payload=\"Troqueladora Apagada\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 400,
+        "wires": [
+            [
+                "c2698a90f57820dc"
+            ]
+        ]
+    },
+    {
+        "id": "d4f86ec4a11cc991",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload = global.get (\"modelodepieza\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 480,
+        "wires": [
+            [
+                "cccfdf0ec51e8cff"
+            ]
+        ]
+    },
+    {
+        "id": "571f51fd171aa811",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload = global.get (\"piezasHechas\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 560,
+        "wires": [
+            [
+                "3db97d1675be3955"
+            ]
+        ]
+    },
+    {
+        "id": "9ca7dfd15b96e22c",
+        "type": "mqtt in",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "topic": "codigoIoT/py/EstadoProceso",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "edd3004a.11da88",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "39c5d09004e1c64e"
+            ]
+        ]
+    },
+    {
+        "id": "2ff9355f48d2b361",
+        "type": "switch",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 700,
+        "wires": [
+            [
+                "4cfeeff1378d14df"
+            ],
+            [
+                "d978d767c0e60de5"
+            ]
+        ]
+    },
+    {
+        "id": "4cfeeff1378d14df",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload = \"1\"+global.get(\"numciclo\")+global.get(\"piezasxproducir\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 680,
+        "wires": [
+            [
+                "c5f48994318d1fc9",
+                "bd746106e73481a3"
+            ]
+        ]
+    },
+    {
+        "id": "fa3663d87fb1b346",
+        "type": "ui_toast",
+        "z": "a4e65cfcd4071311",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 850,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d978d767c0e60de5",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload=\"Para Iniciar el Proceso, Presione el Boton: RESET\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 780,
+        "wires": [
+            [
+                "fa3663d87fb1b346"
+            ]
+        ]
+    },
+    {
+        "id": "fea15303708fac24",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload = global.get (\"estado\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "bf1334032ef9297b"
+            ]
+        ]
+    },
+    {
+        "id": "bf1334032ef9297b",
+        "type": "switch",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 580,
+        "wires": [
+            [
+                "a1270bdf58ab2138"
+            ],
+            [
+                "af3e88de126e198d"
+            ]
+        ]
+    },
+    {
+        "id": "365ab7108e2e8d67",
+        "type": "ui_toast",
+        "z": "a4e65cfcd4071311",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 530,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1270bdf58ab2138",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload= \"Proceso en ejecución, espere a que la troqueladora se detenga\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "365ab7108e2e8d67"
+            ]
+        ]
+    },
+    {
+        "id": "6e8024c683241b24",
+        "type": "switch",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 270,
+        "y": 1100,
+        "wires": [
+            [
+                "4b50ed5ee88d98a9",
+                "38cf0ecbf0de20dd",
+                "da1d01d088049d19"
+            ],
+            [
+                "db5b847b4bba57c3"
+            ]
+        ]
+    },
+    {
+        "id": "159c7344c7425a74",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload = global.get (\"estado\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 1020,
+        "wires": [
+            [
+                "6e8024c683241b24"
+            ]
+        ]
+    },
+    {
+        "id": "db5b847b4bba57c3",
+        "type": "function",
+        "z": "a4e65cfcd4071311",
+        "name": "",
+        "func": "msg.payload= \"Proceso en ejecución, espere a que la troqueladora se detenga\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1220,
+        "wires": [
+            [
+                "a270de4d00dbbb6d"
+            ]
+        ]
+    },
+    {
+        "id": "a270de4d00dbbb6d",
+        "type": "ui_toast",
+        "z": "a4e65cfcd4071311",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 680,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d5acbd2ecec9b290",
+        "type": "ui_group",
+        "name": "Parametros Iniciales:",
+        "tab": "06fa464ea6bbf2c3",
+        "order": 2,
+        "disp": true,
+        "width": "13",
+        "collapse": false
+    },
+    {
+        "id": "a0327760eeb10456",
+        "type": "ui_group",
+        "name": "Troqueladora de Piezas Mécanicas",
+        "tab": "06fa464ea6bbf2c3",
+        "order": 1,
+        "disp": true,
+        "width": "13",
+        "collapse": false
+    },
+    {
+        "id": "6afa56d9068581a8",
+        "type": "ui_group",
+        "name": "Estado de la Máquina:",
+        "tab": "06fa464ea6bbf2c3",
+        "order": 3,
+        "disp": true,
+        "width": "13",
+        "collapse": false
+    },
+    {
+        "id": "83f8c53ea21b1238",
+        "type": "ui_group",
+        "name": "Botones",
+        "tab": "06fa464ea6bbf2c3",
+        "order": 4,
+        "disp": true,
+        "width": "13",
+        "collapse": false
+    },
+    {
+        "id": "edd3004a.11da88",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "Danto-2217",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "06fa464ea6bbf2c3",
+        "type": "ui_tab",
+        "name": "Poyecto Capstone",
+        "icon": "dashboard",
+        "order": 9,
+        "disabled": false,
+        "hidden": false
+    }
+]
